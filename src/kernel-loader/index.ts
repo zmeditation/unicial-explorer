@@ -10,7 +10,7 @@ import {
 } from '../state/actions'
 import { ErrorType, store } from '../state/redux'
 import { ProviderType } from '@dcl/schemas/dist/dapps/provider-type'
-import { FeatureFlagsResult, fetchFlags } from '@dcl/feature-flags'
+import { FeatureFlagsResult } from '@dcl/feature-flags'
 import { resolveUrlFromUrn } from '@dcl/urn-resolver'
 import { defaultWebsiteErrorTracker, track } from '../utils/tracking'
 import { injectVersions } from '../utils/rolloutVersions'
