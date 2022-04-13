@@ -202,7 +202,30 @@ async function getVersions(flags: FeatureFlagsResult) {
 async function initKernel() {
   const container = document.getElementById('gameContainer') as HTMLDivElement
 
-  const flags = await fetchFlags({ applicationName: 'explorer' })
+  // const flags = await fetchFlags({ applicationName: 'explorer' })
+  const flags = {
+    flags: {
+      'explorer-asset_bundles': true,
+      'explorer-emotes_customization': true,
+      'explorer-parcel-denylist': true,
+      'explorer-procedural_skybox': true,
+      'explorer-rollout-unity-renderer-version': true,
+      'explorer-tutorial': true,
+      'explorer-unsafe-request': true,
+      'explorer-wearable_asset_bundles': true
+    },
+    variants: {
+      'explorer-parcel-denylist': { name: 'all', payload: { type: 'string', value: '-27,-47' }, enabled: true },
+      'explorer-rollout-unity-renderer-version': {
+        name: '1.0.7792',
+        payload: {
+          type: 'json',
+          value: '{"resolved": "https://cdn.decentraland.org/@dcl/unity-renderer/1.0.7792", "version": "1.0.7792" }'
+        },
+        enabled: true
+      }
+    }
+  }
 
   await getVersions(flags)
 
@@ -336,22 +359,21 @@ export function startKernel() {
 
   track('initialize_versions', injectVersions({}))
 
-  launchDesktopApp()
-    .then((launched) => {
-      if (launched) {
-        track('desktop_launched')
-      }
+  launchDesktopApp().then((launched) => {
+    if (launched) {
+      track('desktop_launched')
+    }
 
-      return initKernel()
-        .then((kernel) => {
-          store.dispatch(setKernelLoaded(kernel))
-          if (!launched) {
-            return initLogin(kernel)
-          }
-        })
-        .catch((error) => {
-          store.dispatch(setKernelError({ error }))
-          defaultWebsiteErrorTracker(error)
-        })
-    })
+    return initKernel()
+      .then((kernel) => {
+        store.dispatch(setKernelLoaded(kernel))
+        if (!launched) {
+          return initLogin(kernel)
+        }
+      })
+      .catch((error) => {
+        store.dispatch(setKernelError({ error }))
+        defaultWebsiteErrorTracker(error)
+      })
+  })
 }
