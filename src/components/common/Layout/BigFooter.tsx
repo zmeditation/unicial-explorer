@@ -21,7 +21,7 @@ export const BigFooter = () => {
             <h4>NEED SUPPORT?</h4>
           </div>
           <div>
-            <a className="big-footer-button" href="https://decentraland.org/discord" target="about:blank">
+            <a className="big-footer-button" href="https://discord.gg/JEPcm4YD" target="about:blank">
               <Discord /> Join our Discord
             </a>
           </div>
@@ -31,13 +31,13 @@ export const BigFooter = () => {
             <h4>FOLLOW US</h4>
           </div>
           <div>
-            <a className="big-footer-icon" href="https://www.reddit.com/r/decentraland/" target="about:blank">
+            <a className="big-footer-icon" href="https://www.reddit.com/r/ZilionixxBlockchain" target="about:blank">
               <Reddit />
             </a>
-            <a className="big-footer-icon" href="http://github.com/decentraland" target="about:blank">
+            <a className="big-footer-icon" href="http://github.com/unicial" target="about:blank">
               <Github />
             </a>
-            <a className="big-footer-icon" href="https://twitter.com/decentraland" target="about:blank">
+            <a className="big-footer-icon" href="https://twitter.com/zilionixx" target="about:blank">
               <Twitter />
             </a>
           </div>
@@ -45,7 +45,7 @@ export const BigFooter = () => {
       </Container>
       <Container>
         <p className="copyright" title={'Versions: ' + JSON.stringify(versions, null, 2)}>
-          © {year} Decentraland
+          © {year} WinWin team
         </p>
       </Container>
     </footer>

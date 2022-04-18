@@ -11,7 +11,7 @@ import LoginContainer from './auth/LoginContainer'
 import { Audio } from './common/Audio'
 import { StoreType } from '../state/redux'
 import { isElectron } from '../integration/desktop'
-import { BeginnersGuide } from './auth/BeginnersGuide'
+// import { BeginnersGuide } from './auth/BeginnersGuide'
 import { BigFooter } from './common/Layout/BigFooter'
 import BannerContainer from './banners/BannerContainer'
 import { LoadingRender } from './common/Loading/LoadingRender'
@@ -64,10 +64,10 @@ const App: React.FC<AppProps> = (props) => {
     <div className={`WebsiteApp ${props.hasBanner ? 'withBanner' : ''}`}>
       {!isElectron() && props.sound && <Audio track={`${process.env.PUBLIC_URL}/tone4.mp3`} play />}
       <BannerContainer />
-      {!isElectron() && <Navbar /> }
+      {!isElectron() && <Navbar />}
       <LoginContainer />
-      {!isElectron() && <BeginnersGuide /> }
-      {!isElectron() && <BigFooter /> }
+      {/* {!isElectron() && <BeginnersGuide />} */}
+      {!isElectron() && <BigFooter />}
     </div>
   )
 }

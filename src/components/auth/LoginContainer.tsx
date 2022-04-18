@@ -9,11 +9,10 @@ import { authenticate } from '../../kernel-loader'
 import { EthWalletSelector } from './EthWalletSelector'
 import { LoginGuestItem, LoginWalletItem } from './LoginItemContainer'
 import { isElectron } from '../../integration/desktop'
-import { isWindows } from '../../integration/browser'
+// import { isWindows } from '../../integration/browser'
 import { track } from '../../utils/tracking'
-import logo from '../../images/logo.png'
+import logo from '../../images/logo_unicial.png'
 import './LoginContainer.css'
-
 
 export const defaultAvailableProviders = []
 
@@ -28,7 +27,7 @@ const mapStateToProps = (state: StoreType): LoginContainerProps => {
     kernelReady: state.kernel.ready,
     rendererReady: state.renderer.ready,
     isGuest: state.session.kernelState ? state.session.kernelState.isGuest : undefined,
-    isWallet: state.session.kernelState ? !state.session.kernelState.isGuest && !!state.session.connection : undefined,
+    isWallet: state.session.kernelState ? !state.session.kernelState.isGuest && !!state.session.connection : undefined
   }
 }
 
@@ -53,27 +52,34 @@ export interface LoginContainerDispatch {
   onLogin: (provider: ProviderType | null) => void
 }
 
-export const LoginContainer: React.FC<LoginContainerProps & LoginContainerDispatch> = ({ onLogin, stage, isWallet, isGuest, provider, kernelReady, availableProviders }) => {
+export const LoginContainer: React.FC<LoginContainerProps & LoginContainerDispatch> = ({
+  onLogin,
+  stage,
+  isWallet,
+  isGuest,
+  provider,
+  kernelReady,
+  availableProviders
+}) => {
   const [showWalletSelector, setShowWalletSelector] = useState(false)
-  const onSelect = useCallback(
-    () => {
-      if (isElectron() && onLogin) {
-        onLogin(ProviderType.WALLET_CONNECT)
-      } else {
-        track('open_login_popup')
-        setShowWalletSelector(true)
-      }
-    },
-    [onLogin]
-  )
+  const onSelect = useCallback(() => {
+    if (isElectron() && onLogin) {
+      onLogin(ProviderType.WALLET_CONNECT)
+    } else {
+      track('open_login_popup')
+      setShowWalletSelector(true)
+    }
+  }, [onLogin])
   const onCancel = useCallback(() => setShowWalletSelector(false), [])
   const onGuest = useCallback(() => onLogin && onLogin(null), [onLogin])
   const loading = useMemo(() => {
-    return stage === LoginState.SIGNATURE_PENDING ||
+    return (
+      stage === LoginState.SIGNATURE_PENDING ||
       stage === LoginState.WAITING_PROFILE ||
       stage === LoginState.WAITING_RENDERER ||
       stage === LoginState.LOADING ||
       !kernelReady
+    )
   }, [stage, kernelReady])
 
   const providerInUse = useMemo(() => {
@@ -84,7 +90,7 @@ export const LoginContainer: React.FC<LoginContainerProps & LoginContainerDispat
     return undefined
   }, [stage, provider])
 
-  const desktopAvailable = useMemo(() => !isElectron() && isWindows(), [])
+  const desktopAvailable = false //useMemo(() => !isElectron() && isWindows(), [])
 
   if (stage === LoginState.COMPLETED) {
     return <React.Fragment />
@@ -96,7 +102,7 @@ export const LoginContainer: React.FC<LoginContainerProps & LoginContainerDispat
       {/* {stage === LoginState.SIGN_ADVICE && <EthSignAdvice />} */}
       <Container>
         <div className="LogoContainer">
-          <img alt="decentraland" src={logo} height="40" width="212" />
+          <img alt="decentraland" src={logo} height="64" width="164" />
           <p>Sign In or Create an Account</p>
         </div>
         <div>
@@ -104,7 +110,12 @@ export const LoginContainer: React.FC<LoginContainerProps & LoginContainerDispat
           <LoginGuestItem loading={loading} active={isGuest} onClick={onGuest} />
         </div>
         <div style={{ visibility: desktopAvailable ? 'visible' : 'hidden' }}>
-          <a className="DownloadDesktopApp" href="https://decentraland.org/download/" target="_blank" rel="noreferrer noopener">
+          <a
+            className="DownloadDesktopApp"
+            href="https://decentraland.org/download/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             Want to play on windows? <span style={{ textDecoration: 'underline' }}>Download the desktop client</span>
           </a>
         </div>
