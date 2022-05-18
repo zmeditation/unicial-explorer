@@ -143,3 +143,4 @@ yarn-error.log*
 /public/voice-chat-codec
 storybook-static
 /kernel
+/kernel-bck
