@@ -29,7 +29,7 @@
   left: 4px;
   width: calc(100% - 16px);
   height: calc(100% - 16px);
-  border-radius: 24px;
+  border-radius: 13px;
   background-color: rgba(0, 0, 0, 0.5);
   border: 4px solid rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -95,7 +95,7 @@
 
 .LoginItemContainer.LoginWalletItem .LoginItemContainer__Content {
   background: linear-gradient(7.7deg, #306494 -1.97%, #21263f 97.98%);
-  filter: drop-shadow(0px 5px 20px rgba(55, 55, 79, 0.1));
+  /* filter: drop-shadow(0px 5px 20px rgba(55, 55, 79, 0.1)); */
   border-radius: 15px;
   width: 340px;
   height: 448px;
@@ -112,7 +112,7 @@
 
 .LoginItemContainer.LoginGuestItem .LoginItemContainer__Content {
   background: linear-gradient(7.7deg, #514592 -1.97%, #21263f 97.98%);
-  filter: drop-shadow(0px 5px 20px rgba(55, 55, 79, 0.1));
+  /* filter: drop-shadow(0px 5px 20px rgba(55, 55, 79, 0.1)); */
   border-radius: 15px;
   width: 340px;
   height: 448px;
@@ -129,6 +129,7 @@
 
 .LoginItemContainer.loading .LoginItemContainer__Content {
   opacity: 0.5;
+  border: none;
 }
 
 .LoginItemContainer .LoginItemContainer__Content h2 {
