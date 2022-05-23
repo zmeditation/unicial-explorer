@@ -8,12 +8,14 @@ main.LoginContainer {
   align-items: center;
   height: 100vh;
   min-height: 790px;
+  background-color: #21263f;
   background-size: cover;
-  background-color: transparent;
+  /* background-color: transparent; */
   background-position: bottom center;
   background-repeat: no-repeat;
   background-origin: border-box;
-  background-image: url('../../images/background-v4.jpg');
+  background-image: url('../../images/bg.png');
+  /* background-image: url('../../images/background-v4.jpg');
   background-image: url('../../images/background-v4.jpg');
   background-image: -webkit-image-set(
     url('../../images/background-v4.jpg') 1x,
@@ -26,7 +28,7 @@ main.LoginContainer {
     url('../../images/background-v4.jpg') 2x,
     url('../../images/background-v4.jpg') 3x,
     url('../../images/background-v4.jpg') 4x
-  );
+  ); */
 }
 
 .LoginContainer * {
@@ -62,12 +64,25 @@ main.LoginContainer {
 }
 
 .LoginContainer .LogoContainer p {
-  color: white;
   margin-top: 10px;
-  font-size: 24px;
-  line-height: 29px;
-  font-weight: 300;
   letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #96a1db;
+}
+
+.LoginContainer .LogoUnicial {
+  display: flex;
+  align-items: center;
+}
+
+.LoginContainer .LogoUnicial span {
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 70px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
 }
 
 .LoginContainer .LoginItemContainer {
@@ -87,6 +102,24 @@ main.LoginContainer {
   background-repeat: no-repeat;
   background-position: 14px 14px;
   cursor: pointer;
+}
+
+.LoginContainer .playContainer {
+  position: relative;
+}
+
+.LoginContainer .playContainer .vectorImgLeft {
+  position: absolute;
+  top: -75px;
+  left: 50px;
+  z-index: 1;
+}
+
+.LoginContainer .playContainer .vectorImgRight {
+  position: absolute;
+  top: -75px;
+  right: 50px;
+  z-index: 1;
 }
 
 @media screen and (min-height: 900px) {

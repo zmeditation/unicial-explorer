@@ -15,38 +15,31 @@ export const BigFooter = () => {
 
   return (
     <footer className="big-footer">
-      <Container>
+      {/* <Container>
         <div>
-          <div>
-            <h4>NEED SUPPORT?</h4>
-          </div>
-          <div>
-            <a className="big-footer-button" href="https://discord.gg/JEPcm4YD" target="about:blank">
-              <Discord /> Join our Discord
-            </a>
-          </div>
+          <h4>NEED SUPPORT?</h4>
         </div>
         <div>
-          <div>
-            <h4>FOLLOW US</h4>
-          </div>
-          <div>
-            <a className="big-footer-icon" href="https://www.reddit.com/r/ZilionixxBlockchain" target="about:blank">
-              <Reddit />
-            </a>
-            <a className="big-footer-icon" href="http://github.com/unicial" target="about:blank">
-              <Github />
-            </a>
-            <a className="big-footer-icon" href="https://twitter.com/zilionixx" target="about:blank">
-              <Twitter />
-            </a>
-          </div>
+          <a className="big-footer-button" href="https://discord.gg/JEPcm4YD" target="about:blank">
+            <Discord /> Join our Discord
+          </a>
         </div>
-      </Container>
+      </Container> */}
       <Container>
         <p className="copyright" title={'Versions: ' + JSON.stringify(versions, null, 2)}>
           © {year} WinWin team
         </p>
+        <div className='big-footer-social'>
+          <a className="big-footer-icon" href="https://www.reddit.com/r/ZilionixxBlockchain" target="about:blank">
+            <Reddit />
+          </a>
+          <a className="big-footer-icon" href="http://github.com/unicial" target="about:blank">
+            <Github />
+          </a>
+          <a className="big-footer-icon" href="https://twitter.com/zilionixx" target="about:blank">
+            <Twitter />
+          </a>
+        </div>
       </Container>
     </footer>
   )

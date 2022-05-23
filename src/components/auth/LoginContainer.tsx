@@ -13,7 +13,8 @@ import { isElectron } from '../../integration/desktop'
 import { track } from '../../utils/tracking'
 import logo from '../../images/logo_unicial.png'
 import './LoginContainer.css'
-
+import vectorLeft from '../../images/vector_left.svg'
+import vectorRight from '../../images/vector_right.svg'
 export const defaultAvailableProviders = []
 
 const mapStateToProps = (state: StoreType): LoginContainerProps => {
@@ -102,12 +103,21 @@ export const LoginContainer: React.FC<LoginContainerProps & LoginContainerDispat
       {/* {stage === LoginState.SIGN_ADVICE && <EthSignAdvice />} */}
       <Container>
         <div className="LogoContainer">
-          <img alt="decentraland" src={logo} height="64" width="164" />
+          <div className="LogoUnicial">
+            <img alt="decentraland" src={logo} />
+            <span>Unicial</span>
+          </div>
           <p>Sign In or Create an Account</p>
         </div>
         <div>
-          <LoginWalletItem loading={loading} active={isWallet} onClick={onSelect} provider={providerInUse} />
-          <LoginGuestItem loading={loading} active={isGuest} onClick={onGuest} />
+          <div className="playContainer">
+            <img src={vectorLeft} alt="vector" className="vectorImgLeft"></img>
+            <LoginWalletItem loading={loading} active={isWallet} onClick={onSelect} provider={providerInUse} />
+          </div>
+          <div className="playContainer">
+            <img src={vectorRight} alt="vector" className="vectorImgRight"></img>
+            <LoginGuestItem loading={loading} active={isGuest} onClick={onGuest} />
+          </div>
         </div>
         <div style={{ visibility: desktopAvailable ? 'visible' : 'hidden' }}>
           <a
