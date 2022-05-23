@@ -144,3 +144,4 @@ yarn-error.log*
 storybook-static
 /kernel
 /kernel-bck
+/package-lock.json
