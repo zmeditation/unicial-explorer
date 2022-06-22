@@ -71,14 +71,14 @@ export const EthWalletSelector: React.FC<WalletSelectorProps> = React.memo(
         )}
         {/* <LoginModal.Option type={LoginModalOptionType.FORTMATIC} onClick={handleLoginFortmatic} /> */}
         {/* <LoginModal.Option type={LoginModalOptionType.WALLET_CONNECT} onClick={handleLoginWalletConnect}  /> */}
-        <small className="message">
+        {/* <small className="message">
           Trezor and smart contract wallets like Dapper, Argent or Gnosis safe, do not work with Polygon. Read more
           about the Trezor support status{' '}
           <a href="https://github.com/trezor/trezor-firmware/pull/1568" target="_blank" rel="noopener noreferrer">
             {'here'}
           </a>
           .
-        </small>
+        </small> */}
       </LoginModal>
     )
   }
